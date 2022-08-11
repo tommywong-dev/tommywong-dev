@@ -1,14 +1,12 @@
 <script lang="ts">
-	const s = {
-		name: 'Tommy Wong',
-		description: 'develops web and mobile apps.'
-	};
+	import type About from '$lib/types/About.type';
+	export let about: About;
 </script>
 
 <header>
 	<section>
-		<h1>{s.name}</h1>
-		<h2>{s.description}</h2>
+		<h1>{about.title}</h1>
+		<h2>{about.description}</h2>
 	</section>
 </header>
 
@@ -36,6 +34,7 @@
 		background: linear-gradient(20deg, var(--primary-color) 35%, var(--secondary-color) 65%);
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
+		background-clip: text;
 		font-size: 5rem;
 		margin: 0;
 	}
