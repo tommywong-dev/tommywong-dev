@@ -1,4 +1,4 @@
-import { gql, GraphQLClient } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const getEnAboutQuery = gql`
 	query GetEnAbout {
@@ -19,7 +19,3 @@ export const getZhAboutQuery = gql`
 		}
 	}
 `;
-
-const graphQLClient = new GraphQLClient(import.meta.env.VITE_HYGRAPH_CONTENT_API);
-
-export default graphQLClient;
