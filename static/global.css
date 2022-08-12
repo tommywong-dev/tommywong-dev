@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
-  --primary-color: #EC065D;
-  --secondary-color: #00d1b2;
+  --primary-color: #574BCD;
+  --secondary-color: #2999AD;
+  --tertiary-color: #41E975;
+
+  --primary-linear-gradient: linear-gradient(30deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+
   --light-color: #F1F5F9;
   --dark-color: #212529;
+  
+  --gray-1-color: #c1c5c9;
 }
 
 * {
@@ -14,5 +20,45 @@
 body {
   margin: 0;
   background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: 0.5s all ease-out;
+  position: relative;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  border-top: 1px dashed var(--primary-color);
+  transition: 0.5s all ease-out;
+}
+a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-top: 1px dashed var(--secondary-color);
+}
+
+.mask {
+  -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
+}

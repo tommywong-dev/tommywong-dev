@@ -31,7 +31,7 @@
 	}
 
 	h2 {
-		background: linear-gradient(20deg, var(--primary-color) 35%, var(--secondary-color) 65%);
+		background: var(--primary-linear-gradient);
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
 		background-clip: text;

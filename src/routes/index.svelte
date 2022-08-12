@@ -14,8 +14,6 @@
 			graphQLClient.request(getEnHeaderQuery),
 			graphQLClient.request(getEnAboutQuery)
 		]);
-		// const { headers } = await graphQLClient.request(getEnHeaderQuery);
-		// const { abouts } = await graphQLClient.request(getEnAboutQuery);
 
 		return {
 			props: {
