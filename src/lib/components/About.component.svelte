@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type About from '$lib/types/About.type';
+	import type Text from '$lib/types/Text.type';
 	import { marked } from 'marked';
-	export let about: About;
+	export let t: Text;
 </script>
 
 <main>
 	<div class="content">
-		<h3>{about.title}</h3>
-		<h4>{about.description}</h4>
+		<h3>{t.aboutTitle}</h3>
+		<h4>{t.aboutDescription}</h4>
 		<article>
-			{@html marked(about.content)}
+			{@html marked(t.aboutMarkdown)}
 		</article>
 	</div>
 	<div class="thumbnail">
@@ -41,6 +41,10 @@
 		color: var(--primary-color);
 		font-size: 3rem;
 		margin: 0 0 1rem;
+	}
+
+	h4 {
+		font-size: 1.2rem;
 	}
 
 	article {

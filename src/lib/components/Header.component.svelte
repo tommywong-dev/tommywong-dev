@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type Header from '$lib/types/Header.type';
-	export let header: Header;
+	import type Text from '$lib/types/Text.type';
+
+	export let t: Text;
 </script>
 
 <header>
 	<section>
-		<h1>{header.title}</h1>
-		<h2>{header.description}</h2>
+		<h1>{t.headerTitle}</h1>
+		<h2>{t.headerDescription}</h2>
 	</section>
 </header>
 

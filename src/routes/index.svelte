@@ -1,33 +1,27 @@
 <script context="module" lang="ts">
 	import AboutComponent from '$lib/components/About.component.svelte';
 	import HeaderComponent from '$lib/components/Header.component.svelte';
-	import { getEnAboutQuery, getZhAboutQuery } from '$lib/graphql/about.query';
+	import TechsComponent from '$lib/components/Techs.component.svelte';
 	import graphQLClient from '$lib/graphql/graphQLClient';
-	import { getEnHeaderQuery, getZhHeaderQuery } from '$lib/graphql/header.query';
-	import type About from '$lib/types/About.type';
-	import type Header from '$lib/types/Header.type';
-
+	import { getEnTextsQuery } from '$lib/graphql/text.query';
+	import type Text from '$lib/types/Text.type';
 	import type { Load } from '@sveltejs/kit';
 
 	export const load: Load = async () => {
-		const [{ headers }, { abouts }] = await Promise.all([
-			graphQLClient.request(getEnHeaderQuery),
-			graphQLClient.request(getEnAboutQuery)
-		]);
+		const [{ texts }] = await Promise.all([graphQLClient.request(getEnTextsQuery)]);
 
 		return {
 			props: {
-				about: abouts[0],
-				header: headers[0]
+				t: texts[0]
 			}
 		};
 	};
 </script>
 
 <script lang="ts">
-	export let header: Header;
-	export let about: About;
+	export let t: Text;
 </script>
 
-<HeaderComponent {header} />
-<AboutComponent {about} />
+<HeaderComponent {t} />
+<AboutComponent {t} />
+<TechsComponent {t} />
