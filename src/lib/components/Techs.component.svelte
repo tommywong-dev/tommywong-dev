@@ -21,9 +21,6 @@
 				</div>
 				<p class="card-content">
 					{tech.description}
-					<!-- In this industry, how can you be a web developer without knowing NodeJS? I have built tons
-					of NodeJS related projects including using frameworks like Angular, Ionic, React Native, Firebase
-					Functions, and more. -->
 				</p>
 			</div>
 		{/each}
@@ -47,7 +44,7 @@
 
 	.cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		gap: 1rem;
 	}
 
