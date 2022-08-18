@@ -4,6 +4,9 @@ type Story = {
 	startDate: Date;
 	endDate: Date;
 	nextButtonLabel: string;
+	thumbnail: {
+		url: string;
+	};
 };
 
 export default Story;

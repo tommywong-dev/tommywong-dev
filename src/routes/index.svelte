@@ -3,6 +3,7 @@
 	import HeaderComponent from '$lib/components/Header.component.svelte';
 	import TechsComponent from '$lib/components/Techs.component.svelte';
 	import JourneyComponent from '$lib/components/Journey.component.svelte';
+	import FooterComponent from '$lib/components/Footer.component.svelte';
 	import graphQLClient from '$lib/graphql/graphQLClient';
 	import { getEnTechsQuery } from '$lib/graphql/tech.query';
 	import { getEnTextsQuery } from '$lib/graphql/text.query';
@@ -39,3 +40,4 @@
 <AboutComponent {t} />
 <TechsComponent {t} {techs} />
 <JourneyComponent {t} {stories} />
+<FooterComponent />

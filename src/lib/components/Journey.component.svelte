@@ -33,7 +33,7 @@
 					{#if seeingIndex > index}
 						✔️
 					{:else if seeingIndex === index}
-						👉
+						<img src={story.thumbnail.url} width="48px" height="auto" alt={story.title} />
 					{:else}
 						{index + 1}
 					{/if}
@@ -138,8 +138,9 @@
 		height: calc(var(--large-circle-radius));
 		font-size: 2rem;
 		transform: translateX(-0.75rem);
-		background: var(--tertiary-color);
+		background: transparent;
 		cursor: default;
+		outline: 2px solid var(--tertiary-color);
 	}
 	.seeing:not(:last-child):after {
 		top: calc(var(--large-circle-radius) + calc(var(--spacing)));
@@ -170,18 +171,16 @@
 	}
 
 	.back {
-		background: transparent;
-		color: var(--secondary-color);
+		background: var(--gray-7-color);
+		color: white;
 	}
 
 	.next {
-		background: var(--secondary-color);
-		color: white;
-		box-shadow: 0 4px 16px 4px var(--secondary-shadow);
+		background: white;
 		transition: 0.2s all ease-out;
 	}
 	.next:hover {
-		transform: translateY(-5px);
+		box-shadow: 0 20px 16px -4px rgba(255, 255, 255, 0.3);
 	}
 
 	.read-again {

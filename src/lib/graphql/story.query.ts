@@ -8,6 +8,9 @@ export const getEnStoriesQuery = gql`
 			title
 			nextButtonLabel
 			description
+			thumbnail {
+				url
+			}
 		}
 	}
 `;
@@ -20,6 +23,7 @@ export const getMsStoriesQuery = gql`
 			title
 			nextButtonLabel
 			description
+			thumbnail
 		}
 	}
 `;

@@ -5,24 +5,19 @@
   --secondary-color: #2999AD;
   --tertiary-color: #41E975;
 
-  --primary-linear-gradient: linear-gradient(30deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
-  --secondary-linear-gradient: linear-gradient(to top, var(--secondary-color), var(--tertiary-color));
-
   --light-color: #F1F5F9;
   --dark-color: #212529;
-  
+
   --gray-1-color: #c1c5c9;
   --gray-7-color: #373e45;
   --gray-9-color: #252a30;
 
+  --primary-linear-gradient: linear-gradient(30deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+  --secondary-linear-gradient: linear-gradient(to bottom, var(--tertiary-color), var(--gray-7-color));
+
   --circle-radius: 3rem;
   --large-circle-radius: calc(var(--circle-radius) * 1.5);
   --spacing: 0.5rem;
-
-  --primary-shadow: rgb(87, 75, 205, 0.5);
-  --secondary-shadow: rgb(41, 153, 173, 0.5);
-  --tertiary-shadow: rgb(65, 233, 117, 0.5);
-  --dark-shadow: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -38,30 +33,26 @@ body {
 a {
   color: var(--secondary-color);
   text-decoration: none;
-  transition: 0.5s all ease-out;
   position: relative;
-}
-a:hover {
-  color: var(--primary-color);
 }
 a::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
   right: 0;
+  bottom: 0px;
   width: 0;
-  border-top: 1px dashed var(--secondary-color);
-  transition: 0.5s all ease-out;
+  height: 1px;
+  background: var(--secondary-color);
+  transition: 0.75s width cubic-bezier(0.25, 1, 0.5, 1);
 }
 a:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
   left: 0;
-  right: 0;
+  right: auto;
   width: 100%;
-  border-top: 1px dashed var(--primary-color);
+}
+
+p {
+  line-height: 1.5rem;
 }
 
 section {
@@ -69,7 +60,7 @@ section {
 }
 @media only screen and (max-width: 768px) {
   section {
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
   }
 }
 
