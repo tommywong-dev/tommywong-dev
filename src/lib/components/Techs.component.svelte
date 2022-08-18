@@ -28,10 +28,6 @@
 </section>
 
 <style>
-	section {
-		padding: 5rem 3rem;
-	}
-
 	h3 {
 		color: var(--secondary-color);
 		font-size: 3rem;
@@ -44,7 +40,7 @@
 
 	.cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 		gap: 1rem;
 	}
 

@@ -21,10 +21,6 @@
 		position: relative;
 	}
 
-	section {
-		padding: 3rem;
-	}
-
 	h1 {
 		color: var(--light-color);
 		font-size: 8rem;
@@ -38,5 +34,15 @@
 		background-clip: text;
 		font-size: 5rem;
 		margin: 0;
+	}
+
+	@media only screen and (max-width: 768px) {
+		h1 {
+			font-size: 6rem;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
 	}
 </style>

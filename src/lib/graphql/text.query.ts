@@ -10,6 +10,8 @@ export const getEnTextsQuery = gql`
 			headerTitle
 			techDescription
 			techTitle
+			journeyDescription
+			journeyTitle
 		}
 	}
 `;
@@ -24,6 +26,8 @@ export const getZhTextsQuery = gql`
 			headerTitle
 			techDescription
 			techTitle
+			journeyDescription
+			journeyTitle
 		}
 	}
 `;
