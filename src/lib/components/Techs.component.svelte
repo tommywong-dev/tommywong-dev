@@ -45,6 +45,7 @@
 	}
 
 	.card {
+		border: 0.5px solid var(--gray-7-color);
 		background-color: var(--gray-9-color);
 		border-radius: 1.2rem;
 		padding: 1rem;

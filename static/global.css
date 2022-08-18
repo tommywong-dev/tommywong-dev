@@ -12,7 +12,8 @@
   --dark-color: #212529;
   
   --gray-1-color: #c1c5c9;
-  --gray-9-color: #373e45;
+  --gray-7-color: #373e45;
+  --gray-9-color: #252a30;
 
   --circle-radius: 3rem;
   --large-circle-radius: calc(var(--circle-radius) * 1.5);

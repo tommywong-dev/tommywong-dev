@@ -112,7 +112,7 @@
 		flex: 0 0 var(--circle-radius);
 		height: var(--circle-radius);
 		border-radius: 50%;
-		background-color: var(--gray-9-color);
+		background-color: var(--gray-7-color);
 		cursor: pointer;
 	}
 	li:not(:last-child):after {
@@ -122,7 +122,7 @@
 		bottom: var(--spacing);
 		left: 0;
 		width: 2px;
-		background-color: var(--gray-9-color);
+		background-color: var(--gray-7-color);
 		transform: translateX(calc(var(--circle-radius) / 2 - 1px));
 	}
 
