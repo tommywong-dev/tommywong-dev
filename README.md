@@ -1,6 +1,6 @@
 # 👋 tommywong-dev
 
-Hi, this is Tommy Wong. Self-taught, got app development intern before university, promoted as Senior in 2 years, and built a startup company, all happened before finishing his sophomore. He mainly build web and mobile apps. Although he is a frontend heavy full-stack developer, he has strong sense of business logic and problem solving capability which is proven by his company and client.
+Hi, this is Tommy Wong. Self-taught, got an app development intern before enrolling university, promoted as Senior in 2 years, and built a startup company, all happened before finishing his sophomore year. He mainly build web and mobile apps. Although he is a frontend heavy full-stack developer, he has strong sense of business logic and problem solving capability which is proven by his company and client.
 
 ## Languages
 
