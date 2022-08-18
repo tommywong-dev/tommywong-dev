@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+  --primary-color: #574BCD;
+  --secondary-color: #2999AD;
+  --tertiary-color: #41E975;
+
+  --light-color: #F1F5F9;
+  --dark-color: #212529;
+
+  --gray-1-color: #c1c5c9;
+  --gray-7-color: #373e45;
+  --gray-9-color: #252a30;
+
+  --primary-linear-gradient: linear-gradient(30deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+  --secondary-linear-gradient: linear-gradient(to bottom, var(--tertiary-color), var(--gray-7-color));
+
+  --circle-radius: 3rem;
+  --large-circle-radius: calc(var(--circle-radius) * 1.5);
+  --spacing: 0.5rem;
+}
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  position: relative;
+}
+a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  width: 0;
+  height: 1px;
+  background: var(--secondary-color);
+  transition: 0.75s width cubic-bezier(0.25, 1, 0.5, 1);
+}
+a:hover::after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+section {
+  padding: 5rem 3rem;
+}
+@media only screen and (max-width: 768px) {
+  section {
+    padding: 3rem 2rem;
+  }
+}
+
+.mask {
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
+}
+
+.markdown img {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
