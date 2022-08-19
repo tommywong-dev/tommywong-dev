@@ -5,6 +5,7 @@
 	import JourneyComponent from '$lib/components/Journey.component.svelte';
 	import LetsTalkComponent from '$lib/components/LetsTalk.component.svelte';
 	import FooterComponent from '$lib/components/Footer.component.svelte';
+
 	import graphQLClient from '$lib/graphql/graphQLClient';
 	import { getEnTechsQuery } from '$lib/graphql/tech.query';
 	import { getEnTextsQuery } from '$lib/graphql/text.query';

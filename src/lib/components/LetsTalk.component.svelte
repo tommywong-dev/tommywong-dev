@@ -8,11 +8,16 @@
 	import graphQLClient from '$lib/graphql/graphQLClient';
 	import { createMessageMutation } from '$lib/graphql/message.mutation';
 	import type Message from '$lib/types/Message.type';
+	import SnackbarComponent from './Snackbar.component.svelte';
+	import type SnackbarState from '$lib/types/SnackbarState.type';
 
 	let messaging = false;
+	let sent = false;
+	let snackbarState: SnackbarState;
+
 	export let t: Text;
 
-	const { form, errors, state, handleChange, handleSubmit } = createForm({
+	const { form, errors, state, handleReset, handleChange, handleSubmit } = createForm({
 		initialValues: {
 			name: '',
 			email: '',
@@ -24,15 +29,28 @@
 			message: yup.string().required()
 		}),
 		onSubmit: async (values) => {
+			if (sent) return;
 			const trimmedValues = {} as Message;
 			Object.keys(values).forEach((key) => {
 				trimmedValues[key as keyof Message] = values[key as keyof Message].trim();
 			});
 			try {
 				await graphQLClient.request(createMessageMutation, { data: trimmedValues });
+				handleReset();
 				messaging = false;
+				sent = true;
+				snackbarState = {
+					open: true,
+					variant: 'success',
+					message: 'Message sent successfully!'
+				};
 			} catch (error: any) {
 				console.error(error);
+				snackbarState = {
+					open: true,
+					variant: 'danger',
+					message: 'Failed to send message'
+				};
 			}
 		}
 	});
@@ -118,7 +136,7 @@
 					</div>
 				</button>
 			</a>
-			<button class="email" on:click={() => (messaging = true)}>
+			<button class="email" on:click={() => (messaging = true)} disabled={sent}>
 				<div>
 					<Email />
 					{t.socialEmail}
@@ -126,6 +144,7 @@
 			</button>
 		</div>
 	{/if}
+	<SnackbarComponent state={snackbarState} />
 </section>
 
 <style>
@@ -278,5 +297,23 @@
 
 	.email:hover {
 		background: var(--gray-7-color);
+	}
+	.email:disabled {
+		fill: var(--gray-7-color);
+		color: var(--gray-7-color);
+		background: var(--gray-1-color);
+		cursor: default;
+	}
+
+	@media only screen and (max-width: 768px) {
+		section {
+			grid-template-columns: 1fr;
+			row-gap: 2rem;
+		}
+
+		.lets-talk {
+			padding: 1rem;
+			text-align: center;
+		}
 	}
 </style>

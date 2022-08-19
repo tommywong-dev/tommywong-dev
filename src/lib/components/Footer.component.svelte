@@ -81,6 +81,7 @@
 		.resume,
 		.copyright {
 			justify-content: center;
+			margin: 0;
 		}
 	}
 </style>
