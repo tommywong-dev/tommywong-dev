@@ -24,9 +24,9 @@
 			message: ''
 		},
 		validationSchema: yup.object().shape({
-			name: yup.string().required(),
-			email: yup.string().email().required(),
-			message: yup.string().required()
+			name: yup.string().required(t.formNameError),
+			email: yup.string().email(t.formEmailInvalid).required(t.formEmailError),
+			message: yup.string().required(t.formMessageError)
 		}),
 		onSubmit: async (values) => {
 			if (sent) return;
@@ -42,14 +42,14 @@
 				snackbarState = {
 					open: true,
 					variant: 'success',
-					message: 'Message sent successfully!'
+					message: t.formSubmitSuccess
 				};
 			} catch (error: any) {
 				console.error(error);
 				snackbarState = {
 					open: true,
 					variant: 'danger',
-					message: 'Failed to send message'
+					message: t.formSubmitFailed
 				};
 			}
 		}
@@ -74,7 +74,7 @@
 					on:change={handleChange}
 					on:blur={handleChange}
 					bind:value={$form.name}
-					placeholder="Anonymous"
+					placeholder={t.formNamePlaceholder}
 					class:error={$errors.name}
 				/>
 				{#if $errors.name}
@@ -89,7 +89,7 @@
 					on:change={handleChange}
 					on:blur={handleChange}
 					bind:value={$form.email}
-					placeholder="anonymous@email.com"
+					placeholder={t.formEmailPlaceholder}
 					class:error={$errors.email}
 				/>
 				{#if $errors.email}
@@ -104,7 +104,7 @@
 					on:change={handleChange}
 					on:blur={handleChange}
 					bind:value={$form.message}
-					placeholder="I hate dark theme"
+					placeholder={t.formMessagePlaceholder}
 					class:error={$errors.message}
 				/>
 				{#if $errors.message}

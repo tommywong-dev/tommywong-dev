@@ -1,12 +1,17 @@
-<script>
+<script lang="ts">
+	import type Text from '$lib/types/Text.type';
 	import dayjs from 'dayjs';
 
 	import GitHub from './icons/GitHub.Icon.svelte';
 	import LinkedIn from './icons/LinkedIn.Icon.svelte';
+
+	export let t: Text;
 </script>
 
 <footer>
-	<a href="#resume" class="resume"> Résumé </a>
+	<a href="#resume" class="resume">
+		{t.footerResume}
+	</a>
 	<div class="social-links">
 		<a href="https://github.com/tommywong-dev" target="_blank">
 			<GitHub />
@@ -16,7 +21,7 @@
 		</a>
 	</div>
 	<a href="https://github.com/tommywong-dev/tommywong-dev" target="_blank" class="copyright">
-		Put together by Tommy Wong. Copyright © {dayjs().year()}
+		{t.footerCopyright} © {dayjs().year()}
 	</a>
 </footer>
 

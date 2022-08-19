@@ -19,10 +19,21 @@ export const getEnTextsQuery = gql`
 			socialTwitter
 			socialEmail
 			formName
+			formNameError
+			formNamePlaceholder
 			formEmail
+			formEmailError
+			formEmailInvalid
+			formEmailPlaceholder
 			formMessage
+			formMessageError
+			formMessagePlaceholder
 			formCancel
 			formSubmit
+			formSubmitSuccess
+			formSubmitFailed
+			footerResume
+			footerCopyright
 		}
 	}
 `;
@@ -46,10 +57,21 @@ export const getZhTextsQuery = gql`
 			socialTwitter
 			socialEmail
 			formName
+			formNameError
+			formNamePlaceholder
 			formEmail
+			formEmailError
+			formEmailInvalid
+			formEmailPlaceholder
 			formMessage
+			formMessageError
+			formMessagePlaceholder
 			formCancel
 			formSubmit
+			formSubmitSuccess
+			formSubmitFailed
+			footerResume
+			footerCopyright
 		}
 	}
 `;

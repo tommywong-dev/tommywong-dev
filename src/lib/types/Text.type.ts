@@ -15,10 +15,21 @@ type Text = {
 	socialTwitter: string;
 	socialEmail: string;
 	formName: string;
+	formNameError: string;
+	formNamePlaceholder: string;
 	formEmail: string;
+	formEmailError: string;
+	formEmailInvalid: string;
+	formEmailPlaceholder: string;
 	formMessage: string;
+	formMessageError: string;
+	formMessagePlaceholder: string;
 	formCancel: string;
 	formSubmit: string;
+	formSubmitSuccess: string;
+	formSubmitFailed: string;
+	footerResume: string;
+	footerCopyright: string;
 };
 
 export default Text;

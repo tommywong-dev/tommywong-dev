@@ -43,4 +43,4 @@
 <TechsComponent {t} {techs} />
 <JourneyComponent {t} {stories} />
 <LetsTalkComponent {t} />
-<FooterComponent />
+<FooterComponent {t} />
