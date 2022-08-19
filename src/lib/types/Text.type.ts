@@ -8,6 +8,17 @@ type Text = {
 	techDescription: string;
 	journeyTitle: string;
 	journeyDescription: string;
+	journeyNow: string;
+	letsTalkTitle: string;
+	letsTalkDescription: string;
+	socialInstagram: string;
+	socialTwitter: string;
+	socialEmail: string;
+	formName: string;
+	formEmail: string;
+	formMessage: string;
+	formCancel: string;
+	formSubmit: string;
 };
 
 export default Text;

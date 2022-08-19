@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request';
 
 export const getEnTechsQuery = gql`
-	query GetEnTechsQuery {
+	query GetEnTechs {
 		techs(locales: en) {
 			icon {
 				url
@@ -13,7 +13,7 @@ export const getEnTechsQuery = gql`
 `;
 
 export const getZhTechsQuery = gql`
-	query GetZhTechsQuery {
+	query GetZhTechs {
 		techs(locales: zh) {
 			icon {
 				url

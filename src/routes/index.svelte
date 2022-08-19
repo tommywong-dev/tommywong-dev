@@ -41,5 +41,5 @@
 <AboutComponent {t} />
 <TechsComponent {t} {techs} />
 <JourneyComponent {t} {stories} />
-<LetsTalkComponent />
+<LetsTalkComponent {t} />
 <FooterComponent />

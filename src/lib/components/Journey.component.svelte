@@ -43,7 +43,7 @@
 						>{dayjs(story.startDate).format('MMM YYYY')} - {#if story.endDate}
 							{dayjs(story.endDate).format('MMM YYYY')}
 						{:else}
-							now
+							{t.journeyNow}
 						{/if}</span
 					>
 					<h5>{story.title}</h5>

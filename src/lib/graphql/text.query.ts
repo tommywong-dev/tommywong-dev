@@ -12,6 +12,17 @@ export const getEnTextsQuery = gql`
 			techTitle
 			journeyDescription
 			journeyTitle
+			journeyNow
+			letsTalkTitle
+			letsTalkDescription
+			socialInstagram
+			socialTwitter
+			socialEmail
+			formName
+			formEmail
+			formMessage
+			formCancel
+			formSubmit
 		}
 	}
 `;
@@ -28,6 +39,17 @@ export const getZhTextsQuery = gql`
 			techTitle
 			journeyDescription
 			journeyTitle
+			journeyNow
+			letsTalkTitle
+			letsTalkDescription
+			socialInstagram
+			socialTwitter
+			socialEmail
+			formName
+			formEmail
+			formMessage
+			formCancel
+			formSubmit
 		}
 	}
 `;

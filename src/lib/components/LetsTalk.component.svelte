@@ -2,36 +2,102 @@
 	import Email from './icons/Email.Icon.svelte';
 	import Instagram from './icons/Instagram.Icon.svelte';
 	import Twitter from './icons/Twitter.Icon.svelte';
+	import type Text from '$lib/types/Text.type';
+	import { createForm } from 'svelte-forms-lib';
+	import * as yup from 'yup';
+	import graphQLClient from '$lib/graphql/graphQLClient';
+	import { createMessageMutation } from '$lib/graphql/message.mutation';
+	import type Message from '$lib/types/Message.type';
 
 	let messaging = false;
+	export let t: Text;
+
+	const { form, errors, state, handleChange, handleSubmit } = createForm({
+		initialValues: {
+			name: '',
+			email: '',
+			message: ''
+		},
+		validationSchema: yup.object().shape({
+			name: yup.string().required(),
+			email: yup.string().email().required(),
+			message: yup.string().required()
+		}),
+		onSubmit: async (values) => {
+			const trimmedValues = {} as Message;
+			Object.keys(values).forEach((key) => {
+				trimmedValues[key as keyof Message] = values[key as keyof Message].trim();
+			});
+			try {
+				await graphQLClient.request(createMessageMutation, { data: trimmedValues });
+				messaging = false;
+			} catch (error: any) {
+				console.error(error);
+			}
+		}
+	});
 </script>
 
 <section>
 	<div class="lets-talk">
-		<h3>Let's Talk!</h3>
+		<h3>{t.letsTalkTitle}</h3>
 		<h4>
-			If you feel like he is the one you are searching for, or there's something about the website
-			you wanna critise, feel free to let him know!
+			{t.letsTalkDescription}
 		</h4>
 	</div>
 	<div class="divider" />
 	{#if messaging}
-		<form>
+		<form on:submit|preventDefault={handleSubmit}>
 			<div class="form-group">
-				<label for="name">Name</label>
-				<input type="text" name="name" required />
+				<label for="name">{t.formName}</label>
+				<input
+					type="text"
+					name="name"
+					on:change={handleChange}
+					on:blur={handleChange}
+					bind:value={$form.name}
+					placeholder="Anonymous"
+					class:error={$errors.name}
+				/>
+				{#if $errors.name}
+					<small>{$errors.name}</small>
+				{/if}
 			</div>
 			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="email" name="email" required />
+				<label for="email">{t.formEmail}</label>
+				<input
+					type="email"
+					name="email"
+					on:change={handleChange}
+					on:blur={handleChange}
+					bind:value={$form.email}
+					placeholder="anonymous@email.com"
+					class:error={$errors.email}
+				/>
+				{#if $errors.email}
+					<small>{$errors.email}</small>
+				{/if}
 			</div>
 			<div class="form-group">
-				<label for="message">Message</label>
-				<textarea name="message" rows="5" required />
+				<label for="message">{t.formMessage}</label>
+				<textarea
+					name="message"
+					rows="5"
+					on:change={handleChange}
+					on:blur={handleChange}
+					bind:value={$form.message}
+					placeholder="I hate dark theme"
+					class:error={$errors.message}
+				/>
+				{#if $errors.message}
+					<small>{$errors.message}</small>
+				{/if}
 			</div>
 			<div class="action-buttons">
-				<button class="cancel" on:click={() => (messaging = false)}>Nvm</button>
-				<button type="submit">Submit</button>
+				<button type="button" class="cancel" on:click={() => (messaging = false)}
+					>{t.formCancel}</button
+				>
+				<button type="submit" disabled={$state.isSubmitting}>{t.formSubmit}</button>
 			</div>
 		</form>
 	{:else}
@@ -39,20 +105,23 @@
 			<a href="https://www.instagram.com/tommywong.dev/" target="_blank">
 				<button class="instagram">
 					<div>
-						<Instagram /> Instagram
+						<Instagram />
+						{t.socialInstagram}
 					</div>
 				</button>
 			</a>
 			<a href="https://twitter.com/tommywong_dev" target="_blank">
 				<button class="twitter">
 					<div>
-						<Twitter /> Twitter
+						<Twitter />
+						{t.socialTwitter}
 					</div>
 				</button>
 			</a>
 			<button class="email" on:click={() => (messaging = true)}>
 				<div>
-					<Email /> Email
+					<Email />
+					{t.socialEmail}
 				</div>
 			</button>
 		</div>
@@ -143,7 +212,24 @@
 		border: none;
 		resize: none;
 	}
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		box-shadow: 0 0 0 40px var(--gray-7-color) inset !important;
+		-webkit-box-shadow: 0 0 0 40px var(--gray-7-color) inset !important;
+	}
+	input:-webkit-autofill {
+		-webkit-text-fill-color: white !important;
+	}
 
+	.error {
+		outline: 1px solid var(--danger-color);
+	}
+
+	small {
+		color: var(--danger-color);
+	}
 	.action-buttons {
 		display: flex;
 		justify-content: space-between;

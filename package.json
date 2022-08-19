@@ -31,6 +31,8 @@
 		"dayjs": "^1.11.5",
 		"marked": "^4.0.18",
 		"svelte-cubed": "^0.2.1",
-		"vite-plugin-markdown": "^2.1.0"
+		"svelte-forms-lib": "^2.0.1",
+		"vite-plugin-markdown": "^2.1.0",
+		"yup": "^0.32.11"
 	}
 }
