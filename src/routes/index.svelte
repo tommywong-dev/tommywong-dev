@@ -38,6 +38,9 @@
 	export let stories: Story[];
 </script>
 
+<svelte:head>
+	<title>tommywong.dev</title>
+</svelte:head>
 <HeaderComponent {t} />
 <AboutComponent {t} />
 <TechsComponent {t} {techs} />

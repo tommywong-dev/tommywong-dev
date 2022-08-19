@@ -9,7 +9,7 @@
 </script>
 
 <footer>
-	<a href="#resume" class="resume">
+	<a href="/resume.pdf" download class="resume">
 		{t.footerResume}
 	</a>
 	<div class="social-links">
