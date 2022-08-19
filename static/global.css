@@ -31,7 +31,7 @@ body {
 }
 
 a {
-  color: var(--secondary-color);
+  color: white;
   text-decoration: none;
   position: relative;
 }
@@ -42,7 +42,7 @@ a::after {
   bottom: 0px;
   width: 0;
   height: 1px;
-  background: var(--secondary-color);
+  background: white;
   transition: 0.75s width cubic-bezier(0.25, 1, 0.5, 1);
 }
 a:hover::after {
@@ -75,6 +75,9 @@ section {
   mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
 }
 
+.markdown {
+  color: var(--gray-1-color);
+}
 .markdown img {
   width: 100%;
   max-width: 800px;

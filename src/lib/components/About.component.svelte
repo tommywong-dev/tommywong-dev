@@ -8,19 +8,19 @@
 	<div class="content">
 		<h3>{t.aboutTitle}</h3>
 		<h4>{t.aboutDescription}</h4>
-		<article>
+		<article class="markdown">
 			{@html marked(t.aboutMarkdown)}
 		</article>
 	</div>
 	<div class="thumbnail">
 		<picture>
 			<img
-				class="thumbnail-img mask"
+				class="thumbnail-img"
 				src="handsome.jpeg"
 				alt="My handsome thumbnail"
 				title="My handsome thumbnail"
 			/>
-			<div class="purple-box mask" />
+			<div class="box" />
 		</picture>
 	</div>
 </main>
@@ -47,10 +47,6 @@
 		font-size: 1.2rem;
 	}
 
-	article {
-		color: var(--gray-1-color);
-	}
-
 	.thumbnail {
 		padding: 5rem;
 		display: flex;
@@ -67,20 +63,26 @@
 		height: auto;
 		background: var(--primary-linear-gradient);
 		transition: 0.3s all ease-out;
+		border-radius: 0.5rem;
 	}
 	.thumbnail-img:hover {
-		transform: scale(0.95);
+		transform: translate(-10%, -10%);
+		outline: 6px solid var(--primary-color);
 	}
 
-	.purple-box {
+	.box {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		height: 99%;
-		width: 99%;
+		height: 95%;
+		width: 95%;
 		transform: translate(-50%, -50%);
-		background: var(--primary-linear-gradient);
+		outline: 2px dashed var(--primary-color);
+		border-radius: 0.5rem;
 		z-index: -1;
-		transition: 0.3s all ease-out;
+		transition: 0.3s transform ease-out;
+	}
+	.box:hover {
+		transform: translate(5%, 5%);
 	}
 </style>
