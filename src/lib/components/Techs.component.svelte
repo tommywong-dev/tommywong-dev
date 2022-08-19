@@ -30,12 +30,6 @@
 <style>
 	h3 {
 		color: var(--secondary-color);
-		font-size: 3rem;
-		margin: 0 0 1rem;
-	}
-
-	h4 {
-		font-size: 1.2rem;
 	}
 
 	.cards {
