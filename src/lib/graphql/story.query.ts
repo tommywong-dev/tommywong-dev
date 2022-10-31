@@ -15,8 +15,8 @@ export const getEnStoriesQuery = gql`
 	}
 `;
 
-export const getMsStoriesQuery = gql`
-	query GetMsStories {
+export const getZhStoriesQuery = gql`
+	query GetZhStories {
 		stories(locales: zh, orderBy: startDate_ASC) {
 			endDate
 			startDate
